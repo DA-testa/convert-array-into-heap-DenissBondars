@@ -39,7 +39,7 @@ def main():
         data = list(map(int, input().split()))
     if "F" in FI:
         test = input()
-        test_file = "test/" + test
+        test_file = "tests/" + test
         with open(test_file) as file:
             n = int(file.readline())
             data = list(map(int, file.readline().split()))
