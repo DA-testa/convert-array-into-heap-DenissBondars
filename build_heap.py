@@ -10,8 +10,8 @@ def build_heap(data):
     while(i >= 0):
         j = i
         while sort:
-            left_child = j * 2 + 1
-            right_child = j * 2 + 2
+            left_child = 2 * j + 1
+            right_child = 2 * j + 2
             minimum = j
             if left_child <= n - 1 and data[left_child] < data[minimum]:
                 minimum = left_child
@@ -44,7 +44,6 @@ def main():
             n = int(file.readline())
             data = list(map(int, file.readline().split()))
 
-
     # checks if lenght of data is the same as the said lenght
     assert len(data) == n
 
@@ -56,7 +55,7 @@ def main():
     # this number should be less than 4n (less than 4*len(data))
 
     # output all swaps
-    if len(swaps) < 4 * n:
+    if len(swaps) < 4 * len(data):
         print(len(swaps))
         for i, j in swaps:
             print(i, j)
