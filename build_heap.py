@@ -6,24 +6,24 @@ def build_heap(data):
     # try to achieve  O(n) and not O(n2)
     n = len(data)
     i = int(n / 2)
+    sort = True
     while(i >= 0):
-        left_child = i * 2 + 1
-        right_child = i * 2 + 2
-        minimum = i
-
-        if left_child <= n - 1 and data[left_child] < data[minimum]:
-            minimum = left_child
-
-        if right_child <= n - 1 and data[right_child] < data[minimum]:
-            minimum = right_child
-
-        if minimum != i:
-            data[i], data[minimum] = data[minimum], data[i]
-            swaps.append((i, minimum))
-            i = minimum
-        else:
-            i = i - 1
-
+        j = i
+        while sort:
+            left_child = j * 2 + 1
+            right_child = j * 2 + 2
+            minimum = j
+            if left_child <= n - 1 and data[left_child] < data[minimum]:
+                minimum = left_child
+            if right_child <= n - 1 and data[right_child] < data[minimum]:
+                minimum = right_child
+            if minimum == j:
+                i = i - 1
+                break
+            else:
+                data[j], data[minimum] = data[minimum], data[j]
+                swaps.append((j, minimum))
+                j = minimum
     return swaps
 
 def main():
